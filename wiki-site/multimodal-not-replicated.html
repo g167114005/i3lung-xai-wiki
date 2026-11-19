@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>資料越多越準？多模態的進步沒有重現</title><style>:root{--bg:#F6F3EC;--ink:#1A2331;--mut:#5A6475;--rule:#D8D2C5;--acc:#8E2A2A;--warn:#B3432A;--card:#FFFDF8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+header{border-bottom:1px solid var(--rule);background:var(--card)}header div,main{max-width:860px;margin:0 auto;padding:14px 24px}
+header a{margin-right:18px;font-weight:600}main{padding-top:28px;padding-bottom:80px}a{color:var(--acc)}
+h1{font-size:30px;line-height:1.3;margin:.2em 0 .6em}h2{font-size:21px;margin:1.8em 0 .5em;padding-bottom:4px;border-bottom:2px solid var(--rule)}h3{font-size:18px;margin:1.4em 0 .3em}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:1em 0;display:block;overflow-x:auto}th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
+img{max-width:100%;height:auto;display:block;margin:16px 0 4px;border:1px solid var(--rule);border-radius:6px;background:#fff}
+.meta{font-size:14px;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;margin-bottom:8px}.meta b{color:var(--ink)}
+.cite{font:12.5px ui-monospace,Consolas,monospace;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 5px;white-space:nowrap}
+blockquote{margin:1em 0;padding:8px 16px;border-left:4px solid var(--warn);background:var(--card)}code{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 4px;font-size:.9em}
+figure{margin:20px 0}figcaption{font-size:14px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}.cards a{display:block;background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--acc);border-radius:8px;padding:18px 20px;text-decoration:none;color:var(--ink)}
+.cards b{display:block;font-size:20px;color:var(--acc);margin-bottom:4px}.cards span{font-size:15px;color:var(--mut)}
+@media (max-width:600px){body{font-size:16px}h1{font-size:25px}header div,main{padding-left:16px;padding-right:16px}}</style></head><body><header><div><a href="../index.html">首頁</a><a href="../wiki-site/story.html">三分鐘看懂</a><a href="../wiki-site/index.html">Wiki 目錄</a><a href="https://github.com/g167114005/i3lung-xai-wiki">GitHub</a></div></header><main><h1>資料越多越準？多模態的進步沒有重現</h1>
+<h2>問題是什麼</h2>
+<p>直覺上，把 CT、病理、基因都加進來，AI 應該更準。這篇在「練習階段」確實看到進步，但換成沒看過的病人時，進步就不見了或不穩定。</p>
+<h2>證據</h2>
+<ul>
+<li>交叉驗證時，臨床＋病理＋CT 的模型把疾病控制 AUC 從 0.63 提到 0.77，P = 0.0014 <span class="cite">prelaj2026 p.2</span>。</li>
+<li>某些子族群差更多，例如只打免疫治療的人預測 24 個月存活，0.91 對 0.54 <span class="cite">prelaj2026 p.5</span>。</li>
+<li>但作者寫明：多模態的進步在獨立測試集沒有一致重現，在外部驗證也只部分重現 <span class="cite">prelaj2026 p.5</span>。</li>
+<li>深度學習路線加入其他資料後，也沒有比只用臨床資料更好 <span class="cite">prelaj2026 p.5</span>。</li>
+<li>作者認為原因是完整多模態資料太少、太不一致，而不是模型架構不好 <span class="cite">prelaj2026 p.10</span>。</li>
+</ul>
+<h2>報告者的看法</h2>
+<ul>
+<li>資料齊全的病人很少，又要面對上千維的影像特徵，非常容易「把練習題背起來」（過度擬合）。</li>
+<li>能做齊所有檢查的病人，可能本身就比較特殊（例如在大醫院、病況穩定），結果不一定能推到一般病人。</li>
+<li>這也提醒我們：先把簡單、常規的資料做好，常常比追求複雜的多模態更實際。</li>
+</ul>
+<h2>相關頁面</h2>
+<p><a href="multimodal-fusion.html">多模態與資料融合</a>、<a href="foundation-model.html">Foundation model（基礎模型）</a>、<a href="validation.html">訓練、交叉驗證、測試與外部驗證</a>、<a href="prelaj2026.html">AI 能不能幫醫師判斷誰適合免疫治療？I3LUNG 研究</a></p></main></body></html>

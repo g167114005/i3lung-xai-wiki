@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>三分鐘看懂這篇論文</title><style>:root{--bg:#F6F3EC;--ink:#1A2331;--mut:#5A6475;--rule:#D8D2C5;--acc:#8E2A2A;--warn:#B3432A;--card:#FFFDF8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+header{border-bottom:1px solid var(--rule);background:var(--card)}header div,main{max-width:860px;margin:0 auto;padding:14px 24px}
+header a{margin-right:18px;font-weight:600}main{padding-top:28px;padding-bottom:80px}a{color:var(--acc)}
+h1{font-size:30px;line-height:1.3;margin:.2em 0 .6em}h2{font-size:21px;margin:1.8em 0 .5em;padding-bottom:4px;border-bottom:2px solid var(--rule)}h3{font-size:18px;margin:1.4em 0 .3em}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:1em 0;display:block;overflow-x:auto}th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
+img{max-width:100%;height:auto;display:block;margin:16px 0 4px;border:1px solid var(--rule);border-radius:6px;background:#fff}
+.meta{font-size:14px;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;margin-bottom:8px}.meta b{color:var(--ink)}
+.cite{font:12.5px ui-monospace,Consolas,monospace;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 5px;white-space:nowrap}
+blockquote{margin:1em 0;padding:8px 16px;border-left:4px solid var(--warn);background:var(--card)}code{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 4px;font-size:.9em}
+figure{margin:20px 0}figcaption{font-size:14px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}.cards a{display:block;background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--acc);border-radius:8px;padding:18px 20px;text-decoration:none;color:var(--ink)}
+.cards b{display:block;font-size:20px;color:var(--acc);margin-bottom:4px}.cards span{font-size:15px;color:var(--mut)}
+@media (max-width:600px){body{font-size:16px}h1{font-size:25px}header div,main{padding-left:16px;padding-right:16px}}</style></head><body><header><div><a href="../index.html">首頁</a><a href="../wiki-site/story.html">三分鐘看懂</a><a href="../wiki-site/index.html">Wiki 目錄</a><a href="https://github.com/g167114005/i3lung-xai-wiki">GitHub</a></div></header><main><h1>三分鐘看懂這篇論文</h1>
+<h2>一句話</h2>
+<p>這篇研究想做一個「AI 小幫手」，在肺癌病人打昂貴的免疫治療之前，先幫醫師猜這個人會不會有效，而且要把理由講給醫師聽。</p>
+<h2>故事從哪裡開始</h2>
+<ul>
+<li>晚期肺癌現在常用「免疫治療」：不是直接殺癌細胞，而是解開免疫系統的煞車，讓身體自己去打癌細胞。介紹見 <a href="lung-cancer-immunotherapy.html">非小細胞肺癌與免疫治療</a>。</li>
+<li>麻煩在於：只有少數人能長期受益，有效的比例是兩到三成 <span class="cite">prelaj2026 p.1</span>。</li>
+<li>目前醫師主要看一個叫 PD-L1 的檢驗值來決定，但它不太準 <span class="cite">prelaj2026 p.1</span>。見 <a href="biomarkers.html">生物標記</a>。</li>
+<li>所以研究團隊想：如果把抽血、CT、病理切片、基因全部丟給 AI，會不會比只看 PD-L1 準？</li>
+</ul>
+<h2>他們怎麼做</h2>
+<ul>
+<li>收集六個國家、2,396 位病人的資料 <span class="cite">prelaj2026 p.1</span>。</li>
+<li>像考試一樣分三份：大部分給 AI「上課」（訓練），一部分當「模擬考」（測試），最後拿美國另一家醫院的病人當「真正的大考」（外部驗證）<span class="cite">prelaj2026 p.2</span>。比喻見 <a href="validation.html">訓練、交叉驗證、測試與外部驗證</a>。</li>
+<li>試了兩類 AI：比較傳統的機器學習，以及深度學習 <span class="cite">prelaj2026 p.2</span>。見 <a href="ml-vs-dl.html">機器學習、深度學習與 logistic regression</a>。</li>
+<li>把 AI 的理由畫成 SHAP 圖，讓醫師看得懂 <span class="cite">prelaj2026 p.6</span>。見 <a href="shap.html">SHAP</a>。</li>
+</ul>
+<figure><img alt="原文 Figure 1a：整個研究的流程圖（CC BY 4.0）" src="../assets/fig1a.png"><figcaption>原文 Figure 1a：整個研究的流程圖（CC BY 4.0）</figcaption></figure>
+<h2>結果，用白話說</h2>
+<ol>
+<li><strong>只用常規抽血與病歷資料，AI 就比只看 PD-L1 準。</strong> 預測能不能活過兩年，AI 的 AUC 是 0.74，PD-L1 只有 0.53 <span class="cite">prelaj2026 p.6</span>。AUC 見 <a href="auc-cindex.html">AUC 與 C-index</a>。</li>
+<li><strong>再加 CT、病理、基因，沒有穩定變得更準。</strong> 在「上課」時看起來有進步，到「模擬考」卻沒有一致重現 <span class="cite">prelaj2026 p.5</span>。見 <a href="multimodal-not-replicated.html">資料越多越準？多模態的進步沒有重現</a>。</li>
+<li><strong>換到美國的醫院，分數掉了。</strong> 預測兩年存活的 AUC 從 0.74 降到 0.60 <span class="cite">prelaj2026 p.2</span>。見 <a href="external-validation-drop.html">換一家醫院，AI 就變笨了？外部驗證的掉分</a>。</li>
+<li><strong>醫師看了 AI 的解釋，判斷變好了。</strong> 找出「會有效的人」的能力（敏感度）從 0.72 升到 0.87 <span class="cite">prelaj2026 p.6</span>。見 <a href="sensitivity-specificity.html">敏感度、特異度、準確度與 kappa</a>。</li>
+<li><strong>但專家有時會被 AI 帶著走。</strong> AI 給錯建議時，專家照著改的比例是 72.2%，比非專家的 63.6% 還高 <span class="cite">prelaj2026 p.7</span>。見 <a href="automation-bias.html">自動化偏誤</a>。</li>
+</ol>
+<h2>為什麼值得讀</h2>
+<ul>
+<li>很多醫療 AI 論文只報告「模型分數多高」。這篇多走了一步：真的找醫師來試用，看人加上 AI 會不會更好。</li>
+<li>它也誠實寫出做不好的部分（多模態沒贏、外部驗證掉分），這對想做醫療 AI 的人很有參考價值。</li>
+</ul>
+<h2>相關頁面</h2>
+<p>論文頁 <a href="prelaj2026.html">AI 能不能幫醫師判斷誰適合免疫治療？I3LUNG 研究</a>；先讀觀念 <a href="lung-cancer-immunotherapy.html">非小細胞肺癌與免疫治療</a> → <a href="biomarkers.html">生物標記</a> → <a href="auc-cindex.html">AUC 與 C-index</a> → <a href="shap.html">SHAP</a>；議題 <a href="usability-no-control.html">醫師變準了，是 AI 的功勞嗎？可用性研究的設計限制</a>、<a href="predictive-vs-prognostic.html">「預測療效」還是「預估預後」？</a>。</p></main></body></html>

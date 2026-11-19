@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>多模態與資料融合</title><style>:root{--bg:#F6F3EC;--ink:#1A2331;--mut:#5A6475;--rule:#D8D2C5;--acc:#8E2A2A;--warn:#B3432A;--card:#FFFDF8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+header{border-bottom:1px solid var(--rule);background:var(--card)}header div,main{max-width:860px;margin:0 auto;padding:14px 24px}
+header a{margin-right:18px;font-weight:600}main{padding-top:28px;padding-bottom:80px}a{color:var(--acc)}
+h1{font-size:30px;line-height:1.3;margin:.2em 0 .6em}h2{font-size:21px;margin:1.8em 0 .5em;padding-bottom:4px;border-bottom:2px solid var(--rule)}h3{font-size:18px;margin:1.4em 0 .3em}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:1em 0;display:block;overflow-x:auto}th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
+img{max-width:100%;height:auto;display:block;margin:16px 0 4px;border:1px solid var(--rule);border-radius:6px;background:#fff}
+.meta{font-size:14px;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;margin-bottom:8px}.meta b{color:var(--ink)}
+.cite{font:12.5px ui-monospace,Consolas,monospace;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 5px;white-space:nowrap}
+blockquote{margin:1em 0;padding:8px 16px;border-left:4px solid var(--warn);background:var(--card)}code{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 4px;font-size:.9em}
+figure{margin:20px 0}figcaption{font-size:14px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}.cards a{display:block;background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--acc);border-radius:8px;padding:18px 20px;text-decoration:none;color:var(--ink)}
+.cards b{display:block;font-size:20px;color:var(--acc);margin-bottom:4px}.cards span{font-size:15px;color:var(--mut)}
+@media (max-width:600px){body{font-size:16px}h1{font-size:25px}header div,main{padding-left:16px;padding-right:16px}}</style></head><body><header><div><a href="../index.html">首頁</a><a href="../wiki-site/story.html">三分鐘看懂</a><a href="../wiki-site/index.html">Wiki 目錄</a><a href="https://github.com/g167114005/i3lung-xai-wiki">GitHub</a></div></header><main><h1>多模態與資料融合</h1>
+<h2>白話解釋</h2>
+<ul>
+<li><strong>模態（modality）</strong>：資料的「種類」。這篇有四種：臨床抽血（表格數字）、CT 影像、病理切片影像、基因檢測。</li>
+<li><strong>多模態</strong>：把不同種類的資料一起餵給 AI，就像醫師看病時同時看病歷、影像、檢驗報告。</li>
+<li><strong>早期融合</strong>：一開始就把所有資料的特徵串成一長條再丟進模型。簡單，但每位病人每種資料都要有。</li>
+<li><strong>中期融合</strong>：每種資料先各自整理成精簡的摘要，再合併判斷；缺某種資料時也能運作。</li>
+<li>直覺上資料越多越準，但實際上「資料齊全的人越來越少」，模型反而容易學到雜訊。</li>
+</ul>
+<h2>在這篇論文怎麼用</h2>
+<ul>
+<li>四種資料的人數差很多：臨床 2,396、基因 1,723、CT 1,705、病理 936 <span class="cite">prelaj2026 p.2</span>。</li>
+<li>臨床、CT、病理三種都有的 400 人，四種都齊全的只有 339 人 <span class="cite">prelaj2026 p.2</span>。</li>
+<li>CT 有兩條擷取方式：傳統 radiomics 128 個特徵，以及 <a href="foundation-model.html">Foundation model（基礎模型）</a> 擷取的特徵 <span class="cite">prelaj2026 p.3</span>。</li>
+</ul>
+<figure><img alt="原文 Figure 2a–c：機器學習早期融合的結果（CC BY 4.0）" src="../assets/fig2abc.png"><figcaption>原文 Figure 2a–c：機器學習早期融合的結果（CC BY 4.0）</figcaption></figure>
+<h2>相關頁面</h2>
+<p><a href="foundation-model.html">Foundation model（基礎模型）</a>、<a href="ml-vs-dl.html">機器學習、深度學習與 logistic regression</a>、<a href="multimodal-not-replicated.html">資料越多越準？多模態的進步沒有重現</a>、<a href="prelaj2026.html">AI 能不能幫醫師判斷誰適合免疫治療？I3LUNG 研究</a></p></main></body></html>

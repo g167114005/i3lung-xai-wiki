@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>訓練、交叉驗證、測試與外部驗證</title><style>:root{--bg:#F6F3EC;--ink:#1A2331;--mut:#5A6475;--rule:#D8D2C5;--acc:#8E2A2A;--warn:#B3432A;--card:#FFFDF8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+header{border-bottom:1px solid var(--rule);background:var(--card)}header div,main{max-width:860px;margin:0 auto;padding:14px 24px}
+header a{margin-right:18px;font-weight:600}main{padding-top:28px;padding-bottom:80px}a{color:var(--acc)}
+h1{font-size:30px;line-height:1.3;margin:.2em 0 .6em}h2{font-size:21px;margin:1.8em 0 .5em;padding-bottom:4px;border-bottom:2px solid var(--rule)}h3{font-size:18px;margin:1.4em 0 .3em}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:1em 0;display:block;overflow-x:auto}th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
+img{max-width:100%;height:auto;display:block;margin:16px 0 4px;border:1px solid var(--rule);border-radius:6px;background:#fff}
+.meta{font-size:14px;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;margin-bottom:8px}.meta b{color:var(--ink)}
+.cite{font:12.5px ui-monospace,Consolas,monospace;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 5px;white-space:nowrap}
+blockquote{margin:1em 0;padding:8px 16px;border-left:4px solid var(--warn);background:var(--card)}code{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 4px;font-size:.9em}
+figure{margin:20px 0}figcaption{font-size:14px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}.cards a{display:block;background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--acc);border-radius:8px;padding:18px 20px;text-decoration:none;color:var(--ink)}
+.cards b{display:block;font-size:20px;color:var(--acc);margin-bottom:4px}.cards span{font-size:15px;color:var(--mut)}
+@media (max-width:600px){body{font-size:16px}h1{font-size:25px}header div,main{padding-left:16px;padding-right:16px}}</style></head><body><header><div><a href="../index.html">首頁</a><a href="../wiki-site/story.html">三分鐘看懂</a><a href="../wiki-site/index.html">Wiki 目錄</a><a href="https://github.com/g167114005/i3lung-xai-wiki">GitHub</a></div></header><main><h1>訓練、交叉驗證、測試與外部驗證</h1>
+<h2>白話解釋</h2>
+<p>把 AI 想成準備考試的學生：
+- <strong>訓練集</strong>：課本與練習題，AI 從這裡學。
+- <strong>交叉驗證（CV）</strong>：把練習題分成幾份，輪流拿一份當小考。分數常常偏樂觀，因為題型跟課本很像。
+- <strong>測試集</strong>：模擬考，AI 從沒看過，但出題方式和課本一樣（同幾家醫院）。
+- <strong>外部驗證</strong>：別的學校出的大考（不同醫院、不同國家的病人），最能看出是不是真的學會。
+- <strong>Distribution shift（分布轉移）</strong>：大考的考生組成和平常不同，分數自然會變。</p>
+<h2>在這篇論文怎麼用</h2>
+<ul>
+<li>主分析 2,075 人：85% 訓練（1,550 人）、15% 測試（274 人），美國芝加哥大學 251 人當外部驗證 <span class="cite">prelaj2026 p.2</span>。</li>
+<li>交叉驗證以「醫院」為單位輪流，等於每次都考一家沒看過的醫院，比隨機切更嚴格 <span class="cite">prelaj2026 p.2</span>。</li>
+<li>外部驗證的病人很不一樣：體能狀態 ECOG 0 只有 2.4%，訓練集是 30.3% <span class="cite">prelaj2026 p.4</span>。</li>
+<li>外部驗證組的中位存活 22.2 個月，訓練集只有 12.4 個月 <span class="cite">prelaj2026 p.2</span>。</li>
+</ul>
+<figure><img alt="原文 Table 1：三組病人特徵比較（CC BY 4.0）" src="../assets/tab1.png"><figcaption>原文 Table 1：三組病人特徵比較（CC BY 4.0）</figcaption></figure>
+<h2>相關頁面</h2>
+<p><a href="auc-cindex.html">AUC 與 C-index</a>、<a href="external-validation-drop.html">換一家醫院，AI 就變笨了？外部驗證的掉分</a>、<a href="multimodal-not-replicated.html">資料越多越準？多模態的進步沒有重現</a>、<a href="prelaj2026.html">AI 能不能幫醫師判斷誰適合免疫治療？I3LUNG 研究</a></p></main></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>生物標記：PD-L1、ECOG、NLR、LDH 與 LIPI</title><style>:root{--bg:#F6F3EC;--ink:#1A2331;--mut:#5A6475;--rule:#D8D2C5;--acc:#8E2A2A;--warn:#B3432A;--card:#FFFDF8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.8 "Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif}
+header{border-bottom:1px solid var(--rule);background:var(--card)}header div,main{max-width:860px;margin:0 auto;padding:14px 24px}
+header a{margin-right:18px;font-weight:600}main{padding-top:28px;padding-bottom:80px}a{color:var(--acc)}
+h1{font-size:30px;line-height:1.3;margin:.2em 0 .6em}h2{font-size:21px;margin:1.8em 0 .5em;padding-bottom:4px;border-bottom:2px solid var(--rule)}h3{font-size:18px;margin:1.4em 0 .3em}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:1em 0;display:block;overflow-x:auto}th,td{border:1px solid var(--rule);padding:6px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
+img{max-width:100%;height:auto;display:block;margin:16px 0 4px;border:1px solid var(--rule);border-radius:6px;background:#fff}
+.meta{font-size:14px;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;margin-bottom:8px}.meta b{color:var(--ink)}
+.cite{font:12.5px ui-monospace,Consolas,monospace;color:var(--mut);background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 5px;white-space:nowrap}
+blockquote{margin:1em 0;padding:8px 16px;border-left:4px solid var(--warn);background:var(--card)}code{background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:0 4px;font-size:.9em}
+figure{margin:20px 0}figcaption{font-size:14px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0}.cards a{display:block;background:var(--card);border:1px solid var(--rule);border-top:5px solid var(--acc);border-radius:8px;padding:18px 20px;text-decoration:none;color:var(--ink)}
+.cards b{display:block;font-size:20px;color:var(--acc);margin-bottom:4px}.cards span{font-size:15px;color:var(--mut)}
+@media (max-width:600px){body{font-size:16px}h1{font-size:25px}header div,main{padding-left:16px;padding-right:16px}}</style></head><body><header><div><a href="../index.html">首頁</a><a href="../wiki-site/story.html">三分鐘看懂</a><a href="../wiki-site/index.html">Wiki 目錄</a><a href="https://github.com/g167114005/i3lung-xai-wiki">GitHub</a></div></header><main><h1>生物標記：PD-L1、ECOG、NLR、LDH 與 LIPI</h1>
+<h2>白話解釋</h2>
+<p>「生物標記」就是可以量測、用來預估病情或治療反應的指標，像是看天氣前先看氣壓計。
+- <strong>PD-L1</strong>：癌細胞表面「煞車分子」的多寡，用病理切片染色看百分比。目前是免疫治療唯一正式核准的預測指標。
+- <strong>ECOG 體能狀態</strong>：醫師評估病人日常活動能力的分數，0 是完全正常，數字越大越虛弱。
+- <strong>NLR</strong>：抽血算出的嗜中性球／淋巴球比值，反映身體發炎程度。
+- <strong>LDH</strong>：抽血的一種酵素，高通常代表腫瘤負擔較大。
+- <strong>LIPI</strong>：把 NLR 與 LDH 合在一起的簡單分數。</p>
+<h2>在這篇論文怎麼用</h2>
+<ul>
+<li>作者認為 PD-L1 預測力有限，但仍是唯一核准的指標 <span class="cite">prelaj2026 p.1</span>。</li>
+<li>AI 只用 9 個常規臨床與抽血變項：性別、ECOG、吸菸、PD-L1、骨／肝／腦轉移、NLR、LDH <span class="cite">prelaj2026 p.2</span>。</li>
+<li>預測 24 個月存活時，PD-L1 的 AUC 0.53、ECOG 0.62、LDH 0.58、NLR 0.66，都比 AI 模型低 <span class="cite">prelaj2026 p.6</span>。</li>
+<li>分風險組的能力：AI 的 C-index 0.65，LIPI 只有 0.55 <span class="cite">prelaj2026 p.6</span>。</li>
+</ul>
+<h2>相關頁面</h2>
+<p><a href="auc-cindex.html">AUC 與 C-index</a>、<a href="lung-cancer-immunotherapy.html">非小細胞肺癌與免疫治療</a>、<a href="shap.html">SHAP</a>、<a href="prelaj2026.html">AI 能不能幫醫師判斷誰適合免疫治療？I3LUNG 研究</a></p></main></body></html>
